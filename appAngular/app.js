@@ -7,8 +7,8 @@
                                                  'ngStorage',
                                                  'toaster',
                                                  'peopleManager.person',
-                                                 'peopleManager.login',
-                                                 'peopleManager.error']);
+                                                 'peopleManager.login'
+                                                 ]);
 
   // Ruta por default
   mainApp.run(['$state', function ($state) {
@@ -21,39 +21,34 @@
         $stateProvider
           .state('login', {
               url: '/login',
-              templateUrl: '/login/views/login.html',
+              templateUrl: './components/login/views/loginView.html',
               controller: 'loginController'
           })
           .state('newaccount', {
               url: '/login/new',
-              templateUrl: '/login/views/newAccount.html',
-              controller: 'loginController'
+              templateUrl: './components/login/views/newAccount.html',
+              controller: 'newUserController'
           })
           .state('newperson', {
               url: '/people/new',
-              templateUrl: '/person/views/newPerson.html',
-              controller: 'personController'
+              templateUrl: './components/person/views/newPerson.html',
+              controller: 'peopleController'
           })
-          .state('listpeople', {
+          .state('people', {
               url: '/people',
-              templateUrl: '/person/views/personList.html',
-              controller: 'personController'
-          })
-          .state('editperson', {
-            url: '/people/:id/edit',
-              templateUrl: '/person/views/editPerson.html',
-              controller: 'personController'
+              templateUrl: './components/person/views/personList.html',
+              controller: 'peopleController'
           })
           .state('personprofile', {
             url: '/people/:id',
-              templateUrl: '/person/views/showPerson.html',
-              controller: 'personController'
+              templateUrl: './components/person/views/showPerson.html',
+              controller: 'peopleController'
           })
-          .state('error', {
-            url: '/error',
-              templateUrl: '/error/views/error.html',
-              controller: 'errorController'
-          })
+          // .state('error', {
+          //   url: '/error',
+          //     templateUrl: './components/error/views/error.html',
+          //     controller: 'errorController'
+          // })
         $urlRouterProvider.otherwise('login');
     }]);
 })();
